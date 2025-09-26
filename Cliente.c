@@ -1,9 +1,8 @@
-
 #include <stdio.h>
 #include <string.h>
-#include "cliente.h"
-#include "db.h"
-#include "utils.h"
+#include "Cliente.h"
+#include "mongodb.h"
+#include "Utilidades.h"
 
 #define COLLECTION_CLIENTE "cliente"
 

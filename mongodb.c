@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "db.h"
+#include "mongodb.h"
 
 mongoc_client_t *conn = NULL;
 mongoc_database_t *database = NULL;

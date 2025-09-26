@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "mongodb.h"
-#include "cliente.h"
+#include "Cliente.h"
+#include "Factura.h"
+#include "Utilidades.h"
 
 
 int menu() {
@@ -47,18 +49,4 @@ int main() {
 
     cerrarBD();
     return 0;
-}
-
-void ingreso_cadena(const char *etiqueta , char * cadena)
-{
-   printf("%s",etiqueta);
-   fgets(cadena,64,stdin);
-   cadena[strlen(cadena)-1] = '\0';
-}
-
-void ingreso_entero(const char *etiqueta , int * entero)
-{
-   printf("%s",etiqueta);
-   scanf("%d",entero);
-   __fpurge(stdin);
 }

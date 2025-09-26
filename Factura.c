@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <string.h>
-#include "factura.h"
-#include "db.h"
-#include "utils.h"
+#include "Factura.h"
+#include "mongodb.h"
+#include "Utilidades.h"
+
 
 #define COLLECTION_FACTURA "factura"
 

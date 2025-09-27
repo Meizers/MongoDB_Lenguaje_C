@@ -4,8 +4,6 @@
 mongoc_client_t *conn = NULL;
 mongoc_database_t *database = NULL;
 
-#define MONGO_URL "mongodb://myUserAdmin:abc123@localhost:27017"
-
 int abrirBD() {
     mongoc_init();
     bson_error_t error;

@@ -19,6 +19,20 @@ int cargarFacturas() {
         ingreso_double("Ingrese monto: ", &f.monto);
         ingreso_cadena("Ingrese codigo cliente (referencia): ", f.codigo_cliente, 4);
 
+        bson_t *query = BCON_NEW("codigo", BCON_UTF8(f.codigo_cliente));
+        mongoc_cursor_t *cursor = mongoc_collection_find_with_opts(
+        mongoc_client_get_collection(conn, DB, "cliente"),
+        query, NULL, NULL);
+
+        const bson_t *doc;
+        if (!mongoc_cursor_next(cursor, &doc)) {
+            printf("Error: cliente %s no existe\n", f.codigo_cliente);
+            bson_destroy(query);
+            mongoc_cursor_destroy(cursor);
+            mongoc_collection_destroy(collection);
+            return -1;
+        }
+
         char json[512];
         snprintf(json, sizeof(json),
                  "{\"codigo_factura\": \"%s\", \"fecha\": \"%s\", \"monto\": %.2f, \"codigo_cliente\": \"%s\"}",
